@@ -4,7 +4,7 @@
 
 <132285000108>
         a                plm:MaterialClass ;
-        plm:casNumber    "7440-22-4" ;
+        plm:casNumber    "7441-22-4" ;
         plm:description  "Silver (Ag)" ;
         plm:name         "1322 850 00108" .
 

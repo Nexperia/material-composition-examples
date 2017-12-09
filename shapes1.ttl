@@ -1,0 +1,66 @@
+@prefix : <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix plm: <http://example.com/def/plm/> .
+
+:shape1 a sh:NodeShape ;
+  sh:targetSubjectsOf plm:containsMaterialClass ;
+  sh:property [
+    sh:path plm:qualifiedRelation ;
+    sh:minCount 1 ;
+    sh:class plm:ContainsMaterialClassRelation
+  ] , :typeShape , :nameShape , :containsMaterialClassShape .
+
+:typeShape a sh:PropertyShape ;
+  sh:path rdf:type ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI .
+
+:nameShape a sh:PropertyShape ;
+  sh:path plm:name ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+  sh:pattern "^[0-9]{4} [0-9]{3} [0-9]{5}$" .
+
+:containsMaterialClassShape a sh:PropertyShape ;
+  sh:path plm:containsMaterialClass ;
+  sh:minCount 1 ;
+  sh:class plm:MaterialClass .
+
+:ContainsMaterialClassRelationShape a sh:NodeShape ;
+  sh:targetClass plm:ContainsMaterialClassRelation ;
+  sh:property [
+    sh:path plm:target ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:class plm:MaterialClass
+  ] , [
+    sh:path plm:materialGroup ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string
+  ] , [
+    sh:path plm:massPercentage ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:decimal
+  ] .
+
+:MaterialClassShape a sh:NodeShape ;
+  sh:targetClass plm:MaterialClass ;
+  sh:property :typeShape , :nameShape , :descriptionShape , :casNumberShape .
+
+:descriptionShape a sh:PropertyShape ;
+  sh:path plm:description ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string .
+
+:casNumberShape a sh:PropertyShape ;
+  sh:path plm:casNumber ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+  sh:pattern "^[0-9]{2,7}-[0-9]{2}-[0-9]$" . # match pattern "nnnnnNN-NN-N"

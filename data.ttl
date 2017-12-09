@@ -1,0 +1,457 @@
+@base <http://example.com/ns#> .
+@prefix plm:   <http://example.com/def/plm/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<132285000108>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-22-4" ;
+        plm:description  "Silver (Ag)" ;
+        plm:name         "1322 850 00108" .
+
+<132285000177>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-69-9" ;
+        plm:description  "Bismuth (Bi)" ;
+        plm:name         "1322 850 00177" .
+
+<132285000036>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-48-4" ;
+        plm:description  "Cobalt (Co)" ;
+        plm:name         "1322 850 00036" .
+
+<331214892031>
+        a                          plm:MouldCompound ;
+        plm:containsMaterialClass  <132285000223> , <132285000306> , <132285000229> , <132285000231> ;
+        plm:name                   "3312 148 92031" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.4 ;
+                                     plm:materialGroup   "Pigment" ;
+                                     plm:target          <132285000223>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  19.7 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000306>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  9.0 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000229>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  71.0 ;
+                                     plm:materialGroup   "Filler" ;
+                                     plm:target          <132285000231>
+                                   ] .
+
+<132285000435>
+        a                plm:MaterialClass ;
+        plm:casNumber    "35325-39-4" ;
+        plm:description  "Bismaleimide resin - cas no. 35325-39-4 (generic)" ;
+        plm:name         "1322 850 00435" .
+
+<132285000269>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-44-0" ;
+        plm:description  "Carbon (C)" ;
+        plm:name         "1322 850 00269" .
+
+<132285000115>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-50-8" ;
+        plm:description  "Copper (Cu)" ;
+        plm:name         "1322 850 00115" .
+
+<344000000687>
+        a                          plm:LeadFrame ;
+        plm:containsMaterialClass  <132285000123> , <132285000122> , <132285000185> , <132285000115> , <132285000125> , <132285000111> ;
+        plm:name                   "3440 000 00687" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  92.96 ;
+                                     plm:materialGroup   "Copper alloy" ;
+                                     plm:target          <132285000115>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.28 ;
+                                     plm:materialGroup   "Pure metal layer" ;
+                                     plm:target          <132285000123>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.05 ;
+                                     plm:materialGroup   "Pure metal layer" ;
+                                     plm:target          <132285000111>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.63 ;
+                                     plm:materialGroup   "Copper alloy" ;
+                                     plm:target          <132285000125>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.14 ;
+                                     plm:materialGroup   "Copper alloy" ;
+                                     plm:target          <132285000185>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  2.9 ;
+                                     plm:materialGroup   "Copper alloy" ;
+                                     plm:target          <132285000122>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  3.04 ;
+                                     plm:materialGroup   "Pure metal layer" ;
+                                     plm:target          <132285000122>
+                                   ] .
+
+<132295500317>
+        a                          plm:MouldCompound ;
+        plm:containsMaterialClass  <132285000223> , <132285000179> , <132285000229> , <132285000387> , <132285000231> , <132285000201> ;
+        plm:name                   "1322 955 00317" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.2 ;
+                                     plm:materialGroup   "Pigment" ;
+                                     plm:target          <132285000223>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  88.0 ;
+                                     plm:materialGroup   "Filler" ;
+                                     plm:target          <132285000231>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.1 ;
+                                     plm:materialGroup   "Additive" ;
+                                     plm:target          <132285000201>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  3.6 ;
+                                     plm:materialGroup   "Additive" ;
+                                     plm:target          <132285000179>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  4.1 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000229>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  4.0 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000387>
+                                   ] .
+
+<132285000122>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-02-0" ;
+        plm:description  "Nickel (Ni) - cas no. 7440-02-0" ;
+        plm:name         "1322 850 00122" .
+
+<332202989071>
+        a                          plm:Wire ;
+        plm:containsMaterialClass  <132285000111> ;
+        plm:name                   "3322 029 89071" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:materialGroup   "Pure metal" ;
+                                     plm:target          <132285000111>
+                                   ] .
+
+<132285000201>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7723-14-0" ;
+        plm:description  "Misc. Phosphor compounds (generic)" ;
+        plm:name         "1322 850 00201" .
+
+<132285000114>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-47-3" ;
+        plm:description  "Chromium (Cr)" ;
+        plm:name         "1322 850 00114" .
+
+<132285000001>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-36-0" ;
+        plm:description  "Antimony (Sb)" ;
+        plm:name         "1322 850 00001" .
+
+<132299586251>
+        a                          plm:Post-plating ;
+        plm:containsMaterialClass  <132285000053> , <132285000177> , <132285000126> , <132285000115> , <132285000001> ;
+        plm:name                   "1322 995 86251" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.01 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000053>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.0 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000177>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.0 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000115>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  99.99 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000126>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.0 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000001>
+                                   ] .
+
+<132285000306>
+        a                plm:MaterialClass ;
+        plm:casNumber    "29690-82-2" ;
+        plm:description  "Epichlorohydrin/o-Cresol/Formaldehyde polymer (generic)" ;
+        plm:name         "1322 850 00306" .
+
+<132299586663>
+        a                          plm:Post-plating ;
+        plm:containsMaterialClass  <132285000116> , <132285000001> , <132285000053> , <132285000126> , <132285000177> ;
+        plm:name                   "1322 995 86663" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.01 ;
+                                     plm:materialGroup   "Impurity" ;
+                                     plm:target          <132285000116>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  99.95 ;
+                                     plm:materialGroup   "Tin solder" ;
+                                     plm:target          <132285000126>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.01 ;
+                                     plm:materialGroup   "Impurity" ;
+                                     plm:target          <132285000001>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.02 ;
+                                     plm:materialGroup   "Impurity" ;
+                                     plm:target          <132285000177>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.01 ;
+                                     plm:materialGroup   "Impurity" ;
+                                     plm:target          <132285000053>
+                                   ] .
+
+<132285000119>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7439-96-5" ;
+        plm:description  "Manganese (Mn)" ;
+        plm:name         "1322 850 00119" .
+
+<132285000213>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7704-34-9" ;
+        plm:description  "Misc. Sulfur compounds (generic)" ;
+        plm:name         "1322 850 00213" .
+
+<132285000126>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-31-5" ;
+        plm:description  "Tin (Sn)" ;
+        plm:name         "1322 850 00126" .
+
+<132285000387>
+        a                plm:MaterialClass ;
+        plm:casNumber    "85954-11-6" ;
+        plm:description  "Tetramethylbiphenyl diglycidyl ether" ;
+        plm:name         "1322 850 00387" .
+
+<032226800047>
+        a                          plm:Wire ;
+        plm:containsMaterialClass  <132285000179> , <132285000115> ;
+        plm:name                   "0322 268 00047" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.01 ;
+                                     plm:materialGroup   "Impurity" ;
+                                     plm:target          <132285000179>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  99.99 ;
+                                     plm:materialGroup   "Pure metal" ;
+                                     plm:target          <132285000115>
+                                   ] .
+
+<132285000125>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-21-3" ;
+        plm:description  "Silicon (Si)" ;
+        plm:name         "1322 850 00125" .
+
+<132285000179>
+        a                plm:MaterialClass ;
+        plm:description  "Non hazardous" ;
+        plm:name         "1322 850 00179" .
+
+<132285000053>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7439-92-1" ;
+        plm:description  "Lead (Pb)" ;
+        plm:name         "1322 850 00053" .
+
+<340007000868>
+        a                          plm:CESF ;
+        plm:containsMaterialClass  <132285000125> ;
+        plm:name                   "3400 070 00868" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  100.0 ;
+                                     plm:materialGroup   "Doped silicon" ;
+                                     plm:target          <132285000125>
+                                   ] .
+
+<331206306701>
+        a                          plm:LeadFrame ;
+        plm:containsMaterialClass  <132285000119> , <132285000269> , <132285000213> , <132285000108> , <132285000036> , <132285000114> , <132285000122> , <132285000109> , <132285000115> , <132285000201> , <132285000116> , <132285000125> ;
+        plm:name                   "3312 063 06701" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  47.3 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000116>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.85 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000119>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  35.63 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000122>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  2.08 ;
+                                     plm:materialGroup   "Pure metal layer" ;
+                                     plm:target          <132285000108>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.04 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000269>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.26 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000125>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.42 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000036>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.21 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000114>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.09 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000109>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  13.08 ;
+                                     plm:materialGroup   "Pure metal layer" ;
+                                     plm:target          <132285000115>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.02 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000213>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  0.02 ;
+                                     plm:materialGroup   "Iron-nickel alloy" ;
+                                     plm:target          <132285000201>
+                                   ] .
+
+<132253533401>
+        a                          plm:Adhesive ;
+        plm:containsMaterialClass  <132285000108> , <132285000179> , <132285000343> , <132285000435> ;
+        plm:name                   "1322 535 33401" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  10.0 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000435>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  5.0 ;
+                                     plm:materialGroup   "Polymer" ;
+                                     plm:target          <132285000343>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  84.0 ;
+                                     plm:materialGroup   "Filler" ;
+                                     plm:target          <132285000108>
+                                   ] ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  1.0 ;
+                                     plm:materialGroup   "Additive" ;
+                                     plm:target          <132285000179>
+                                   ] .
+
+<132285000111>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-57-5" ;
+        plm:description  "Gold (Au)" ;
+        plm:name         "1322 850 00111" .
+
+<132285000109>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7429-90-5" ;
+        plm:description  "Aluminium (Al)" ;
+        plm:name         "1322 850 00109" .
+
+<340000130609>
+        a                          plm:CESF ;
+        plm:containsMaterialClass  <132285000125> ;
+        plm:name                   "3400 001 30609" ;
+        plm:qualifiedRelation      [ a                   plm:ContainsMaterialClassRelation ;
+                                     plm:massPercentage  "100.0" ;
+                                     plm:materialGroup   "Doped silicon" ;
+                                     plm:target          <132285000125>
+                                   ] .
+
+<132285000231>
+        a                plm:MaterialClass ;
+        plm:casNumber    "60676-86-0" ;
+        plm:description  "Silica fused" ;
+        plm:name         "1322 850 00231" .
+
+<132285000229>
+        a                plm:MaterialClass ;
+        plm:description  "Phenolic resin" ;
+        plm:name         "1322 850 00229" .
+
+<132285000116>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7439-89-6" ;
+        plm:description  "Iron (Fe)" ;
+        plm:name         "1322 850 00116" .
+
+<132285000185>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7439-95-4" ;
+        plm:description  "Magnesium (Mg)" ;
+        plm:name         "1322 850 00185" .
+
+<132285000223>
+        a                plm:MaterialClass ;
+        plm:casNumber    "1333-8-4" ;
+        plm:description  "Carbon black" ;
+        plm:name         "1322 850 00223" .
+
+<132285000123>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7440-05-3" ;
+        plm:description  "Palladium (Pd)" ;
+        plm:name         "1322 850 00123" .
+
+<132285000343>
+        a                plm:MaterialClass ;
+        plm:casNumber    "7534-94-3" ;
+        plm:description  "Isobornyl Methacrylate" ;
+        plm:name         "1322 850 00343" .

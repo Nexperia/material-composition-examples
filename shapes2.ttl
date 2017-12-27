@@ -1,0 +1,112 @@
+@prefix : <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix plm: <http://example.com/def/plm/> .
+
+:shape1 a sh:NodeShape ;
+  sh:targetSubjectsOf plm:containsMaterialClass ;
+  sh:property [
+    sh:path plm:qualifiedRelation ;
+    sh:minCount 1 ;
+    sh:class plm:ContainsMaterialClassRelation
+  ] , :typeShape , :nameShape , :containsMaterialClassShape .
+
+:typeShape a sh:PropertyShape ;
+  sh:path rdf:type ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI .
+
+:nameShape a sh:PropertyShape ;
+  sh:path plm:name ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+  sh:pattern "^[0-9]{4} [0-9]{3} [0-9]{5}$" .
+
+:containsMaterialClassShape a sh:PropertyShape ;
+  sh:path plm:containsMaterialClass ;
+  sh:minCount 1 ;
+  sh:class plm:MaterialClass .
+
+:ContainsMaterialClassRelationShape a sh:NodeShape ;
+  sh:targetClass plm:ContainsMaterialClassRelation ;
+  sh:property [
+    sh:path plm:target ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:class plm:MaterialClass
+  ] , [
+    sh:path plm:materialGroup ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string
+  ] , [
+    sh:path plm:massPercentage ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:decimal
+  ] .
+
+:MaterialClassShape a sh:NodeShape ;
+  sh:targetClass plm:MaterialClass ;
+  sh:property :typeShape , :nameShape , :descriptionShape , :casNumberShape .
+
+:descriptionShape a sh:PropertyShape ;
+  sh:path plm:description ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string .
+
+:casNumberShape a sh:PropertyShape ;
+  sh:path plm:casNumber ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+  sh:pattern "^[0-9]{2,7}-[0-9]{2}-[0-9]$" ; # match pattern "nnnnnNN-NN-N"
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Checksum of CAS Registry Number must be valid." ;
+    sh:prefixes [
+      sh:declare [
+        sh:prefix "plm" ;
+        sh:namespace "http://example.com/def/plm/"^^xsd:anyURI
+      ]
+    ] , [
+      sh:declare [
+        sh:prefix "xsd" ;
+        sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI
+      ]
+    ] ;
+    sh:select """
+      select $this (?casNum as ?value)
+      where {
+        $this $PATH ?casNum                                         # match the plm:casNumber predicate
+        bind(replace(?casNum, "-", "") as ?casNum_)                 # remove the hyphens
+        bind(strlen(?casNum_) as ?len)                              # get the length of the RN
+        bind(xsd:integer(substr(?casNum_,?len-0,1)) as ?0)          # get the checksum value R
+        bind(xsd:integer(substr(?casNum_,?len-1,1))*1 as ?1)        # 1N₁
+        bind(xsd:integer(substr(?casNum_,?len-2,1))*2 as ?2)        # 2N₂
+        bind(xsd:integer(substr(?casNum_,?len-3,1))*3 as ?3)        # 3N₃
+        bind(xsd:integer(substr(?casNum_,?len-4,1))*4 as ?4)        # 4N₄
+        bind(xsd:integer(substr(?casNum_,?len-5,1))*5 as ?5)        # 5N₅
+        bind(xsd:integer(substr(?casNum_,?len-6,1))*6 as ?6)        # 6N₆
+        bind(xsd:integer(substr(?casNum_,?len-7,1))*7 as ?7)        # 7N₇
+        bind(xsd:integer(substr(?casNum_,?len-8,1))*8 as ?8)        # 8N₈
+        bind(xsd:integer(substr(?casNum_,?len-9,1))*9 as ?9)        # 9N₉
+        bind(
+          coalesce(
+            if(?len=10,?1+?2+?3+?4+?5+?6+?7+?8+?9,1/0),             # if RN length = 10, then sum positions 1N₁ thru 9N₉, else
+            if(?len=9,?1+?2+?3+?4+?5+?6+?7+?8,1/0),                 # if RN length = 9, then sum positions 1N₁ thru 8N₈, else
+            if(?len=8,?1+?2+?3+?4+?5+?6+?7,1/0),                    # if RN length = 8, then sum positions 1N₁ thru 7N₇, else
+            if(?len=7,?1+?2+?3+?4+?5+?6,1/0),                       # if RN length = 7, then sum positions 1N₁ thru 6N₆, else
+            if(?len=6,?1+?2+?3+?4+?5,1/0),                          # if RN length = 6, then sum positions 1N₁ thru 5N₅, else
+            if(?len=5,?1+?2+?3+?4,1/0)                              # if RN length = 5, then sum positions 1N₁ thru 4N₄
+          ) as ?sum
+        )
+        bind(?sum/10 as ?sum_10)                                    # divide the sum by 10
+        bind(10*(?sum_10 - floor(?sum_10))  as ?checksum)           # calculate the remainder and multiply by 10 to give the checksum
+        filter(?checksum != ?0)                                     # test if checksum != R
+      }
+      """
+  ] .

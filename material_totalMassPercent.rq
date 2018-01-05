@@ -1,0 +1,5 @@
+PREFIX plm: <http://example.com/def/plm/>
+SELECT ?material (sum(?massPercentage) as ?sumMassPercentage) {
+  ?material plm:qualifiedRelation/plm:massPercentage ?massPercentage .
+}
+GROUP BY ?material

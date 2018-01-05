@@ -1,0 +1,46 @@
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?casNum ?checksum ?test
+where {
+  # remove the hyphens
+  bind(replace(?casNum, "-", "") as ?casNum_)
+
+  # get the length of the RN
+  bind(strlen(?casNum_) as ?len)
+
+  # get the checksum value R
+  bind(xsd:integer(substr(?casNum_, ?len-0, 1)) as ?0)   # R
+  bind(xsd:integer(substr(?casNum_, ?len-1, 1))*1 as ?1) # 1N₁
+  bind(xsd:integer(substr(?casNum_, ?len-2, 1))*2 as ?2) # 2N₂
+  bind(xsd:integer(substr(?casNum_, ?len-3, 1))*3 as ?3) # 3N₃
+  bind(xsd:integer(substr(?casNum_, ?len-4, 1))*4 as ?4) # 4N₄
+  bind(xsd:integer(substr(?casNum_, ?len-5, 1))*5 as ?5) # 5N₅
+  bind(xsd:integer(substr(?casNum_, ?len-6, 1))*6 as ?6) # 6N₆
+  bind(xsd:integer(substr(?casNum_, ?len-7, 1))*7 as ?7) # 7N₇
+  bind(xsd:integer(substr(?casNum_, ?len-8, 1))*8 as ?8) # 8N₈
+  bind(xsd:integer(substr(?casNum_, ?len-9, 1))*9 as ?9) # 9N₉
+  bind(
+    coalesce(
+      # if RN length = 10, then sum positions 1N₁ thru 9N₉, else
+      if(?len=10, ?1+?2+?3+?4+?5+?6+?7+?8+?9, 1/0),
+      # if RN length = 9, then sum positions 1N₁ thru 8N₈, else
+      if(?len=9, ?1+?2+?3+?4+?5+?6+?7+?8, 1/0),
+      # if RN length = 8, then sum positions 1N₁ thru 7N₇, else
+      if(?len=8, ?1+?2+?3+?4+?5+?6+?7, 1/0),
+      # if RN length = 7, then sum positions 1N₁ thru 6N₆, else
+      if(?len=7, ?1+?2+?3+?4+?5+?6, 1/0),
+      # if RN length = 6, then sum positions 1N₁ thru 5N₅, else
+      if(?len=6, ?1+?2+?3+?4+?5, 1/0),
+      # if RN length = 5, then sum positions 1N₁ thru 4N₄
+      if(?len=5, ?1+?2+?3+?4, 1/0)
+    ) as ?sum
+  )
+
+  # divide the sum by 10
+  bind(?sum/10 as ?sum_10)
+
+  # calculate the remainder and multiply by 10 to give the checksum
+  bind(10*(?sum_10 - floor(?sum_10))  as ?checksum)
+
+  # test if checksum = R
+  bind(?checksum = ?0 as ?test)
+}

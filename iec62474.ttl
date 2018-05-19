@@ -1,0 +1,55 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix plm: <http://example.com/def/plm/> .
+@prefix iec: <http://example.com/def/iec62474/> .
+
+plm:Adhesive rdfs:subClassOf iec:M-014 .
+
+ex:ContainsCIPigmentViolet23 owl:equivalentClass [
+    rdf:type owl:Restriction ;
+    owl:onProperty plm:containsMaterialClass ;
+    owl:hasValue <132285000361>
+  ] .
+
+ex:ComponentContainingCIPigmentViolet23 rdfs:subClassOf iec:M-015 ;
+  owl:equivalentClass [
+    rdf:type owl:Class ;
+    owl:intersectionOf ( plm:Component ex:ContainsCIPigmentViolet23 )
+  ] .
+
+ex:MassPercentageMin40 owl:equivalentClass [
+    rdf:type             owl:Restriction ;
+    owl:onProperty       plm:massPercentage ;
+    owl:allValuesFrom [
+      rdf:type             rdfs:Datatype ;
+      owl:onDatatype       xsd:integer ;
+      owl:withRestrictions ( [ xsd:minInclusive 40 ] )
+    ]
+  ] .
+
+ex:HasIron owl:equivalentClass [
+    rdf:type owl:Restriction ;
+    owl:onProperty plm:target ;
+    owl:hasValue <132285000116>
+  ] .
+
+ex:MassPercentageMin40Iron owl:equivalentClass [ 
+    rdf:type owl:Class ;
+    owl:intersectionOf ( ex:MassPercentageMin40 ex:HasIron )
+  ] .
+
+ex:MaterialWithMassPercentageMin40Iron owl:equivalentClass [
+    rdf:type owl:Restriction ;
+    owl:onProperty plm:qualifiedRelation ;
+    owl:someValuesFrom ex:MassPercentageMin40Iron
+  ] .
+
+ex:ComponentWithMassPercentageMin40Iron rdfs:subClassOf iec:M-002 ;
+  owl:equivalentClass [
+    rdf:type owl:Class ;
+    owl:intersectionOf ( plm:Component ex:MaterialWithMassPercentageMin40Iron )
+  ] .
